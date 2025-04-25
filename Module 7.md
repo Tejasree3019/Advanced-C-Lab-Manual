@@ -15,13 +15,37 @@ Else
 6.	Return 0
  
 Program:
+```
+#include <stdio.h>
+#include <string.h>
 
-//type your code here
+struct Person {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Person p;
+    scanf("%d", &p.age);
+    scanf("%s", p.name);
+    printf("Age:%d\n", p.age);
+    printf("Name:%svaccine:%d\n",p.name,p.age);
+    
+   
+    if(p.age>6)
+    printf("eligibility:yes");
+    else
+    printf("eligibility:no");
+    return 0;
+}
+```
+
 
 
 Output:
 
-//paste your output here
+![Screenshot 2025-04-25 104400](https://github.com/user-attachments/assets/e52f8493-697c-4639-8d53-fe278d414c35)
+
 
 
 Result:
@@ -85,25 +109,23 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
-
-
-
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char name[100];
+    scanf("%s",name);
+    printf("%s File Created Successfully\n",name);
+    fp=fopen("%s","w");
+    printf("%s File Opened\n",name);
+    fclose(fp);
+    printf("%s File Closed\n",name);
+}
+```
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
+![Screenshot 2025-04-25 105608](https://github.com/user-attachments/assets/8f3e1707-6fe3-410c-98df-aaee7a71d982)
 
 
 Result:
@@ -132,20 +154,35 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
-
-
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char filename[100];
+    scanf("%s",filename);
+    fp=fopen("%s","w");
+    int count;
+    scanf("%d",&count);
+    float num;
+    if(fp==NULL)
+    {
+        printf("Error");
+    }
+    printf("%s Opened\n",filename);
+    for(int i=0;i<count;i++)
+    {
+        scanf("%f",&num);
+        fprintf(fp,"%f",num);
+    }
+    printf("Data added Successfully");
+}
+```
 
 Output:
 
 
-//paste your output here
-
-
-
-
+![Screenshot 2025-04-25 105750](https://github.com/user-attachments/assets/894b8864-810b-4105-84b7-8fdff288ca0f)
 
 
 Result:
