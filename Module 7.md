@@ -15,13 +15,35 @@ Else
 6.	Return 0
  
 Program:
+```
+#include <stdio.h>
+#include <string.h>
 
-//type your code here
+struct Person {
+    char name[50];
+    int age;
+};
 
+int main() {
+    struct Person p;
+    scanf("%d", &p.age);
+    scanf("%s", p.name);
+    printf("Age:%d\n", p.age);
+    printf("Name:%svaccine:%d\n",p.name,p.age);
+    
+   
+    if(p.age>6)
+    printf("eligibility:yes");
+    else
+    printf("eligibility:no");
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+![Screenshot 2025-04-25 104400](https://github.com/user-attachments/assets/b495adaf-9ff1-4237-ae6e-0ac254d379ad)
+
 
 
 Result:
@@ -43,16 +65,38 @@ Algorithm:
 7.	Return 0
  
 Program:
-
-//type your code here
-
+```
+#include <stdio.h>
+struct numbers {
+    int a;
+    int b;
+};
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    result.b = n.a * n.b;
+    return result;
+}
+int main() {
+    struct numbers n, result;
+    printf("Enter value for a: ");
+    scanf("%d", &n.a);
+    printf("Enter value for b: ");
+    scanf("%d", &n.b);
+    result = add(n);
+    printf("Sum: %d\n", result.a);
+    printf("Product: %d\n", result.b);
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+![Screenshot 2025-04-27 170154](https://github.com/user-attachments/assets/b6acb311-b1bd-4d1c-876e-7f9eb0255176)
+
 
 
 
@@ -85,16 +129,28 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char name[100];
+    scanf("%s",name);
+    printf("%s File Created Successfully\n",name);
+    fp=fopen("%s","w");
+    printf("%s File Opened\n",name);
+    fclose(fp);
+    printf("%s File Closed\n",name);
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+
+![Screenshot 2025-04-25 105750](https://github.com/user-attachments/assets/06e558f3-d53a-4526-ba2e-b5a8790b7ed5)
 
 
 
@@ -132,16 +188,38 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char filename[100];
+    scanf("%s",filename);
+    fp=fopen("%s","w");
+    int count;
+    scanf("%d",&count);
+    float num;
+    if(fp==NULL)
+    {
+        printf("Error");
+    }
+    printf("%s Opened\n",filename);
+    for(int i=0;i<count;i++)
+    {
+        scanf("%f",&num);
+        fprintf(fp,"%f",num);
+    }
+    printf("Data added Successfully");
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+![Screenshot 2025-04-25 105608](https://github.com/user-attachments/assets/bf2b6251-bbff-4d34-aa69-f2fea052c735)
+
 
 
 
@@ -186,8 +264,35 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
-
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+struct Subject {
+    char name[50];
+    int marks;
+};
+int main() {
+    int n, i;
+    struct Subject *s;
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+    s = (struct Subject *)malloc(n * sizeof(struct Subject));
+    if (s == NULL) {
+        printf("Memory not allocated.\n");
+        return 1;
+    }
+    for (i = 0; i < n; i++) {
+        printf("Enter name and marks of subject %d: ", i + 1);
+        scanf("%s %d", s[i].name, &s[i].marks);
+    }
+    printf("\nSubject Details:\n");
+    for (i = 0; i < n; i++) {
+        printf("Name: %s, Marks: %d\n", s[i].name, s[i].marks);
+    }
+    free(s);
+    return 0;
+}
+```
 
 
 
@@ -195,7 +300,8 @@ Program:
 Output:
 
 
-//paste your output here
+
+![Screenshot 2025-04-27 170442](https://github.com/user-attachments/assets/88346bbf-6106-4958-9045-18b4d56350d4)
 
 
 
